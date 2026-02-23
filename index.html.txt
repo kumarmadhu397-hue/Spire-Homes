@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spire Homes | Modish Living</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --spire-navy: #1e2a4a;
+            --spire-red: #a32a29;
+            --spire-gold: #c5a059;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(30, 42, 74, 0.8), rgba(30, 42, 74, 0.6)), 
+                        url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .accent-border { border-left: 4px solid var(--spire-red); }
+        .btn-primary { background-color: var(--spire-red); transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #7a1f1e; transform: translateY(-2px); }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="c8ffa35a-01.jpg" alt="Spire Homes Logo" class="h-14">
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium text-slate-700">
+                <a href="#" class="hover:text-red-700 transition">Home</a>
+                <a href="#" class="hover:text-red-700 transition">Projects</a>
+                <a href="#" class="hover:text-red-700 transition">Architecture</a>
+                <a href="#" class="hover:text-red-700 transition">Contact</a>
+            </div>
+            <button class="btn-primary text-white px-6 py-2 rounded-md font-semibold">
+                Get a Quote
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero-gradient h-[80vh] flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-2xl">
+                <span class="uppercase tracking-widest text-sm font-bold text-red-400">Welcome to Spire Homes</span>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold mt-4 mb-6">Modish Living <br> Redefined.</h1>
+                <p class="text-lg text-gray-200 mb-8 leading-relaxed">
+                    Elevating the standard of construction through innovative design, 
+                    structural excellence, and a passion for modern aesthetics.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="btn-primary px-8 py-3 rounded-md font-bold">View Projects</a>
+                    <a href="#" class="bg-white/10 backdrop-blur-md border border-white/30 px-8 py-3 rounded-md font-bold hover:bg-white/20 transition">Our Story</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="accent-border pl-6">
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Premium Design</h3>
+                <p class="text-gray-600">Architectural masterpieces tailored to your lifestyle and comfort.</p>
+            </div>
+            <div class="accent-border pl-6">
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Structural Integrity</h3>
+                <p class="text-gray-600">Built with the highest quality materials to stand the test of time.</p>
+            </div>
+            <div class="accent-border pl-6">
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Sustainable Living</h3>
+                <p class="text-gray-600">Eco-friendly solutions integrated into every modern home design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-900 py-20 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2">Ongoing Projects</h2>
+                    <div class="h-1 w-20 bg-red-600"></div>
+                </div>
+                <a href="#" class="text-red-400 hover:text-red-300 font-semibold">View All Projects →</a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group overflow-hidden rounded-xl bg-slate-800">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold">The Spire Heights</h4>
+                        <p class="text-slate-400 text-sm mt-2">Luxury Condominiums, Urban Center</p>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-xl bg-slate-800">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold">Modish Villas</h4>
+                        <p class="text-slate-400 text-sm mt-2">Suburban Residential Estates</p>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-xl bg-slate-800">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold">Azure Waterfront</h4>
+                        <p class="text-slate-400 text-sm mt-2">Sustainable Coastal Living</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+<script>
+    async function submitInquiry(formData) {
+        try {
+            const response = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            const result = await response.json();
+            alert(result.message);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>

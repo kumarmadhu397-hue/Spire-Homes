@@ -1,0 +1,83 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// 1. Database Connection (MongoDB)
+// Replace with your MongoDB URI
+mongoose.connect('mongodb://localhost:27017/spire_homes', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log("Connected to Spire Homes Database"))
+  .catch(err => console.log("DB Connection Error:", err));
+
+// 2. Data Models
+const ProjectSchema = new mongoose.Schema({
+    title: String,
+    category: String,
+    image: String,
+    description: String
+});
+
+const InquirySchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    message: String,
+    date: { type: Date, default: Date.now }
+});
+
+const Project = mongoose.model('Project', ProjectSchema);
+const Inquiry = mongoose.model('Inquiry', InquirySchema);
+
+// 3. API Routes
+
+// GET: Fetch all construction projects
+app.get('/api/projects', async (req, res) => {
+    try {
+        const projects = await Project.find();
+        res.json(projects);
+    } catch (err) {
+        res.status(500).json({ message: "Error fetching projects" });
+    }
+});
+
+// POST: Submit a contact/inquiry form
+app.post('/api/contact', async (req, res) => {
+    try {
+        const newInquiry = new Inquiry(req.body);
+        await newInquiry.save();
+        res.status(201).json({ message: "Inquiry received! We will contact you shortly." });
+    } catch (err) {
+        res.status(400).json({ message: "Error saving inquiry" });
+    }
+});
+
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Spire Homes Backend running on http://localhost:${PORT}`);
+});
+// Add this route to your existing server.js file
+
+// POST: Add a new project (Admin Only)
+app.post('/api/projects', async (req, res) => {
+    try {
+        const newProject = new Project(req.body);
+        await newProject.save();
+        res.status(201).json({ message: "Project published successfully!" });
+    } catch (err) {
+        res.status(400).json({ message: "Error saving project" });
+    }
+});
+
+// GET: View all inquiries (For your internal staff)
+app.get('/api/inquiries', async (req, res) => {
+    const inquiries = await Inquiry.find().sort({ date: -1 });
+    res.json(inquiries);
+});
